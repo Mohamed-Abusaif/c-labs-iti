@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1731895749 source:/home/mohamed-abusaif/Downloads/c-labs-iti/lab2/main.c
+	<stdio.h>
+	<stdlib.h>
+
