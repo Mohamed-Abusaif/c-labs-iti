@@ -3,11 +3,7 @@
 
 int main()
 {
-
 //Q1)
-#include <stdio.h>
-#include <stdlib.h>
-
 int row;
 int col;
 int n;
@@ -70,23 +66,8 @@ if((i-1)% n !=0){
     }
 
 //Q4)
-/*
-    int firstNum =10;
-    int secondNum = 10 ;
-
-    printf("Multiplication Table from 1 to 10:\n\n");
-
-    for (int i = 1; i <= firstNum; i++) {
-        for (int j = 1; j <= secondNum; j++) {
-            printf("%3d ", i * j);
-        }
-        printf("\n");
-    }
-*/
-
-//Q5)
     int firstNum =1;
-    int secondNum = 1 ;
+    int secondNum = 1;
 
     printf("Multiplication Table from 1 to 10:\n\n");
 

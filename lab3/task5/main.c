@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 int main() {
+    //maximum and minimum value of an array
     int n, i;
 
     printf("Enter the number of elements: ");

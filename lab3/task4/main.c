@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//Q3) a recursive function to compute the power operation: XY
 
 double power(double x, int y) {
     if (y == 0) {
@@ -15,7 +16,6 @@ double power(double x, int y) {
 int main()
 {
 
-//Q3) Write a recursive function to compute the power operation: XY
   double x;
     int y;
 
