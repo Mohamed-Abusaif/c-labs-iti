@@ -9,7 +9,7 @@
 #define UP 65
 #define DOWN 66
 
-#define EMP_SIZE 3
+#define EMP_SIZE 100
 
 // ANSI color codes
 #define RESET_COLOR "\033[0m"
@@ -74,10 +74,8 @@ void DisplayMenu(int currentPostion, int row, int col)
 {
     printf("\033[H\033[J"); // Clear screen
 
-    // For "New" option (row 5)
-    gotoxy(col / 2 - 4, 1); // Move to the correct column for the box
-
-    gotoxy(col / 2 - 4, 2);
+    // "New" option
+    gotoxy(col / 2 - 4, 1);
     if (currentPostion == 0)
     {
         printf("%sNew%s", GREEN_COLOR, RESET_COLOR);
@@ -86,25 +84,32 @@ void DisplayMenu(int currentPostion, int row, int col)
     {
         printf("%sNew%s", BLUE_COLOR, RESET_COLOR);
     }
-    gotoxy(col / 2 - 4, 3);
 
-    // For "Modify" option (row 10)
-    gotoxy(col / 2 - 4, 4); // Move to the correct column for the box
-    gotoxy(col / 2 - 4, 5);
+    // "Display" option 1
+    gotoxy(col / 2 - 4, 3);
     if (currentPostion == 1)
     {
-        printf("%sDisplay%s", GREEN_COLOR, RESET_COLOR);
+        printf("%sDisplay Employees%s", GREEN_COLOR, RESET_COLOR);
     }
     else
     {
-        printf("%sDisplay%s", BLUE_COLOR, RESET_COLOR);
+        printf("%sDisplay Employees%s", BLUE_COLOR, RESET_COLOR);
     }
-    gotoxy(col / 2 - 4, 6);
 
-    // For "Exit" option (row 15)
-    gotoxy(col / 2 - 4, 7); // Move to the correct column for the box
-    gotoxy(col / 2 - 4, 8);
+    // "Modify" option
+    gotoxy(col / 2 - 4, 5);
     if (currentPostion == 2)
+    {
+        printf("%sModify Employee%s", GREEN_COLOR, RESET_COLOR);
+    }
+    else
+    {
+        printf("%sModify Employee%s", BLUE_COLOR, RESET_COLOR);
+    }
+
+    // "Exit" option
+    gotoxy(col / 2 - 4, 7);
+    if (currentPostion == 3)
     {
         printf("%sExit%s", GREEN_COLOR, RESET_COLOR);
     }
@@ -112,7 +117,6 @@ void DisplayMenu(int currentPostion, int row, int col)
     {
         printf("%sExit%s", BLUE_COLOR, RESET_COLOR);
     }
-    gotoxy(col / 2 - 4, 9);
 }
 
 int main(void)
@@ -134,11 +138,11 @@ int main(void)
                 ch = getch();
                 if (ch == UP)
                 {
-                    currentPostion = (currentPostion - 1 + 3) % 3;
+                    currentPostion = (currentPostion - 1 + 4) % 4; // Cycle 4 options
                 }
                 else if (ch == DOWN)
                 {
-                    currentPostion = (currentPostion + 1) % 3;
+                    currentPostion = (currentPostion + 1) % 4;
                 }
             }
         }
@@ -228,6 +232,27 @@ int main(void)
                 flagExitScreen = 1;
             }
             else if (currentPostion == 2)
+            {
+                printf("\033[H\033[J"); // Clear screen
+                gotoxy(col / 2 - 4, 3);
+                int i = 0;
+                printf(" %sModify Employee Functionality Coming Soon!%s \n", YELLOW_COLOR, RESET_COLOR);
+                getch();
+                while (i++)
+                {
+                    printf("------------------------------\n");
+                    printf("New Employee ID %d:  %d \n", i, empArray[i].emp_id);
+                    printf("New Employee Name %d:  %s \n", i, empArray[i].name);
+                    printf("------------------------------\n");
+                    i++;
+                }
+                // print choose id
+                // switch with numbers represent employee attributes
+                // validations on the id
+                // valid input
+            }
+
+            else if (currentPostion == 3)
             {
 
                 printf("\033[H\033[J"); // Clear screen

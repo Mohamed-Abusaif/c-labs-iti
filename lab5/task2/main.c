@@ -1,48 +1,44 @@
+
 #include <stdio.h>
-#ifdef _WIN32
-#include <windows.h>
-#else
-#include <unistd.h>
-#include <termios.h>
-#endif
+#include <stdlib.h>
+#include "abusaifLib.h"
 
-#define UP 65
-#define DOWN 66
+// 7 built in functions to implement by me
+/*
 
-#define EMP_SIZE 2
+strcat(s1, s2)
+strcmp(str1, str2)
+strlen(string_name)
 
-// ANSI color codes
-#define RESET_COLOR "\033[0m"
-#define RED_COLOR "\033[31m"
-#define GREEN_COLOR "\033[32m"
-#define YELLOW_COLOR "\033[33m"
-#define BLUE_COLOR "\033[34m"
+Strcp()
 
+upper to lower
+lower to upper
 
-// Function to get a single character without echoing it to the console
-int getch(void)
+*/
+
+//to run the code in vscode terminal use the following command:
+//gcc main.c abusaifLib.c -o main && ./main
+
+int main()
 {
-    struct termios oldt, newt;
-    int ch;
+    char str1[100] = "Hello";
+    char str2[] = " World";
 
-    tcgetattr(STDIN_FILENO, &oldt);
-    newt = oldt;
+    abusaifStrCat(str1, str2);
+    printf("Concatenated string: %s\n", str1);
 
-    newt.c_lflag &= ~(ICANON | ECHO);
-    tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+    char str3[100];
+    abusaifStrCpy(str3, str1);
+    printf("Copied string: %s\n", str3);
 
-    ch = getchar();
+    abusaifStrCmp(str1, str2);
 
-    tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+    abusaifStrLen(str1);
 
-    return ch;
-}
+    abusaifStrUpperToLower(str1);
 
-int main() {
-    int ch =0;
-
-    ch=getch();
-    printf("%d" , ch);
+    abusaifStrLowerToUpper(str1);
 
     return 0;
 }
