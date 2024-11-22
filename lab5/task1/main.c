@@ -236,20 +236,58 @@ int main(void)
                 printf("\033[H\033[J"); // Clear screen
                 gotoxy(col / 2 - 4, 3);
                 int i = 0;
-                printf(" %sModify Employee Functionality Coming Soon!%s \n", YELLOW_COLOR, RESET_COLOR);
-                getch();
-                while (i++)
+                printf(" %sModify Employee Functionality!%s \n", YELLOW_COLOR, RESET_COLOR);
+
+                // implement modify employee
+
+                printf("Enter Employee ID to Modify:");
+                scanf("%d", &empArray[i].emp_id);
+                while (getchar() != '\n')
+                    ; // Clear input buffer
+
+                // prompt the user again to choose what to be changed
+
+                printf("Enter Employee Name:");
+                scanf("%s", &empArray[i].name);
+                while (getchar() != '\n')
+                    ; // Clear input buffer
+
+                printf("Enter Employee Age:");
+                scanf("%d", &empArray[i].age);
+                while (getchar() != '\n')
+                    ; // Clear input buffer
+
+                printf("Enter Employee Salary:");
+                scanf("%d", &empArray[i].salary);
+                while (getchar() != '\n')
+                    ; // Clear input buffer
+
+                printf("Enter Employee day Birth Date:");
+                scanf("%d", &empArray[i].bd.day);
+                while (getchar() != '\n')
+                    ; // Clear input buffer
+
+                printf("Enter Employee month Birth Date:");
+                scanf("%d", &empArray[i].bd.month);
+                while (getchar() != '\n')
+                    ; // Clear input buffer
+
+                printf("Enter Employee year Birth Date:");
+                scanf("%d", &empArray[i].bd.year);
+                while (getchar() != '\n')
+                    ; // Clear input buffer
+
+                printf("Do You Want to Modify Another Employee? \n");
+                printf("Press (y) to modify new employee, (n) to exit to main menu! \n");
+                ch = getch();
+                if (ch == 110 || i == EMP_SIZE)
                 {
-                    printf("------------------------------\n");
-                    printf("New Employee ID %d:  %d \n", i, empArray[i].emp_id);
-                    printf("New Employee Name %d:  %s \n", i, empArray[i].name);
-                    printf("------------------------------\n");
-                    i++;
+                    flagExitCurrentScreen = 0;
                 }
-                // print choose id
-                // switch with numbers represent employee attributes
-                // validations on the id
-                // valid input
+                i++;
+
+                // printf("\033[H\033[J"); // Clear screen
+                // gotoxy(col / 2 - 4, 3);
             }
 
             else if (currentPostion == 3)
